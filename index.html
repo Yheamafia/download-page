@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تحميل المود</title>
+<style>
+body {
+  background:#111;
+  color:#fff;
+  font-family: Arial;
+  text-align:center;
+  padding-top:100px;
+}
+.box {
+  background:#1a1a1a;
+  padding:30px;
+  border-radius:15px;
+  width:300px;
+  margin:auto;
+  box-shadow:0 0 20px red;
+}
+button {
+  padding:15px 25px;
+  font-size:18px;
+  border:none;
+  border-radius:10px;
+  background:red;
+  color:white;
+  cursor:pointer;
+}
+button:hover {
+  background:#ff2e2e;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>🔥 قبل التحميل</h2>
+  <p>اشترك بالقناة وحط لايك 👍</p>
+  <p>انتظر 3 ثواني...</p>
+
+  <button id="downloadBtn" style="display:none;" onclick="goDownload()">
+    تحميل الآن 🚀
+  </button>
+</div>
+
+<script>
+setTimeout(() => {
+  document.getElementById("downloadBtn").style.display = "inline-block";
+}, 3000);
+
+function goDownload(){
+  window.location.href = "PUT-YOUR-LINK-HERE";
+}
+</script>
+
+</body>
+</html>
