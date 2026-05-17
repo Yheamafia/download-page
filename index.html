@@ -1,58 +1,235 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>تحميل المود</title>
-<style>
-body {
-  background:#111;
-  color:#fff;
-  font-family: Arial;
-  text-align:center;
-  padding-top:100px;
-}
-.box {
-  background:#1a1a1a;
-  padding:30px;
-  border-radius:15px;
-  width:300px;
-  margin:auto;
-  box-shadow:0 0 20px red;
-}
-button {
-  padding:15px 25px;
-  font-size:18px;
-  border:none;
-  border-radius:10px;
-  background:red;
-  color:white;
-  cursor:pointer;
-}
-button:hover {
-  background:#ff2e2e;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YHEA GAMING | مركز التحميل</title>
+
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: -1;
+    }
+
+    .box {
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(15px);
+      padding: 30px;
+      border-radius: 24px;
+      width: 380px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0, 210, 255, 0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .channel-header {
+      width: calc(100% + 60px);
+      height: 160px;
+      margin: -30px -30px 20px -30px;
+      border-bottom: 2px solid #00d2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071') no-repeat center center;
+      background-size: cover;
+    }
+
+    .channel-header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 0;
+    }
+
+    .channel-header p {
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+      line-height: 1.6;
+      z-index: 1;
+      text-shadow: 0 2px 15px rgba(0, 210, 255, 0.8);
+    }
+
+    h2 {
+      margin: 0 0 10px 0;
+      font-size: 22px;
+      color: #00d2ff;
+    }
+
+    .info-text {
+      font-size: 14px;
+      color: #cbd5e1;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.3s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .sub { background: linear-gradient(45deg, #ff416c, #ff4b2b); }
+    .like { background: linear-gradient(45deg, #00d2ff, #3a7bd5); }
+    .unlock { background: #334155; }
+
+    .unlock.ready {
+      background: #10b981;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+      cursor: pointer;
+    }
+
+    .download {
+      background: #facc15;
+      color: #000;
+      margin-top: 20px;
+      animation: pulse 2s infinite;
+      text-decoration: none;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .hidden { display: none; }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 11px;
+      color: #94a3b8;
+    }
+  </style>
 </head>
 <body>
 
 <div class="box">
-  <h2>🔥 قبل التحميل</h2>
-  <p>اشترك بالقناة وحط لايك 👍</p>
-  <p>انتظر 3 ثواني...</p>
+  <div class="channel-header">
+    <p>الرجاء إكمال جميع الشروط لفتح موقع تنزيل رابط التحميل</p>
+  </div>
 
-  <button id="downloadBtn" style="display:none;" onclick="goDownload()">
-    تحميل الآن 🚀
+  <h2>🔒 نظام التحقق</h2>
+  <p class="info-text">يرجى إكمال المهام لفتح الرابط</p>
+
+  <a href="https://www.youtube.com/@YHEAEBARON?sub_confirmation=1"
+      target="_blank" id="subBtn" class="btn sub" onclick="startTimer('sub')">
+    <span id="subText">📺 1. اشترك في القناة</span>
+  </a>
+
+  <a href="https://www.youtube.com/watch?v=qcs2Rnf6_EA"
+      target="_blank" id="likeBtn" class="btn like" style="display:none;" onclick="startTimer('like')">
+    <span id="likeText">👍 2. اعمل لايك للفيديو</span>
+  </a>
+
+  <a href="https://www.youtube.com/watch?v=qcs2Rnf6_EA"
+      target="_blank" id="commentBtn" class="btn like" style="display:none;" onclick="startTimer('comment')">
+    <span id="commentText">💬 3. اكتب تعليق جميل</span>
+  </a>
+
+  <button id="unlockBtn" class="btn unlock" disabled onclick="finalCheck()">
+    <span id="unlockText">بانتظار التحقق...</span>
   </button>
+
+  <div id="downloadArea" class="hidden">
+    <a href="https://sendgb.com/q6pw2rgfV1u"
+        class="btn download" target="_blank">
+      ⬇ تحميل الملف الآن
+    </a>
+  </div>
+
+  <div class="footer">
+    POWERED BY YHEA GAMING © 2026
+  </div>
 </div>
 
 <script>
-setTimeout(() => {
-  document.getElementById("downloadBtn").style.display = "inline-block";
-}, 3000);
+  let subDone = false;
+  let likeDone = false;
+  let commentDone = false;
+  const TASK_TIME = 10000; // تم ضبطه لـ 10 ثوانٍ ليكون أسرع قليلاً
 
-function goDownload(){
-  window.location.href = "PUT-YOUR-LINK-HERE";
-}
+  function startTimer(type) {
+    let btn, text;
+
+    if (type === 'sub') {
+      btn = document.getElementById('subBtn');
+      text = document.getElementById('subText');
+    } else if (type === 'like') {
+      btn = document.getElementById('likeBtn');
+      text = document.getElementById('likeText');
+    } else {
+      btn = document.getElementById('commentBtn');
+      text = document.getElementById('commentText');
+    }
+
+    btn.style.pointerEvents = "none";
+    text.innerText = "⏳ قيد التحقق...";
+
+    setTimeout(() => {
+      text.innerText = "✅ تمت المهمة بنجاح";
+      btn.style.opacity = "0.6";
+
+      if (type === 'sub') {
+        subDone = true;
+        document.getElementById('likeBtn').style.display = "flex";
+      } else if (type === 'like') {
+        likeDone = true;
+        document.getElementById('commentBtn').style.display = "flex";
+      } else {
+        commentDone = true;
+        enableUnlock();
+      }
+
+    }, TASK_TIME);
+  }
+
+  function enableUnlock() {
+    if (subDone && likeDone && commentDone) {
+      const unlockBtn = document.getElementById('unlockBtn');
+      unlockBtn.disabled = false;
+      unlockBtn.classList.add('ready');
+      document.getElementById('unlockText').innerText = "فتح الرابط الآن";
+    }
+  }
+
+  function finalCheck() {
+    document.getElementById('unlockBtn').style.display = "none";
+    document.getElementById('downloadArea').classList.remove('hidden');
+  }
 </script>
 
 </body>
